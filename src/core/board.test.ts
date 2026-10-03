@@ -7,6 +7,13 @@ describe('dealerForBoard', () => {
   });
 });
 
+describe('board number validation', () => {
+  it.each([0, -1, 1.5])('rejects invalid board number %s', (board) => {
+    expect(() => dealerForBoard(board)).toThrow(RangeError);
+    expect(() => vulnerabilityForBoard(board)).toThrow(RangeError);
+  });
+});
+
 describe('vulnerabilityForBoard', () => {
   it('follows the standard 16-board cycle', () => {
     const boards = Array.from({ length: 16 }, (_, i) => vulnerabilityForBoard(i + 1));

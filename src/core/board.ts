@@ -9,11 +9,19 @@ const VULNERABILITY_CYCLE: readonly Vulnerability[] = [
   'all', 'none', 'NS', 'EW',
 ];
 
+function assertValidBoard(board: number): void {
+  if (!Number.isInteger(board) || board < 1) {
+    throw new RangeError(`Invalid board number: ${board}`);
+  }
+}
+
 export function dealerForBoard(board: number): Seat {
+  assertValidBoard(board);
   return SEATS[(board - 1) % 4];
 }
 
 export function vulnerabilityForBoard(board: number): Vulnerability {
+  assertValidBoard(board);
   return VULNERABILITY_CYCLE[(board - 1) % 16];
 }
 

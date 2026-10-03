@@ -38,6 +38,12 @@ describe('startPlay', () => {
     expect(dummyOf(state)).toBe('N');
     expect(isPlayComplete(state)).toBe(false);
   });
+
+  it('puts dummy opposite a declarer other than South', () => {
+    const state = startPlay(deal, { level: 1, strain: 'NT', doubling: 'none', declarer: 'E' });
+    expect(dummyOf(state)).toBe('W');
+    expect(seatToPlay(state)).toBe('S');
+  });
 });
 
 describe('legalCards', () => {
@@ -86,6 +92,11 @@ describe('playCard', () => {
     expect(tricksWon(state, 'EW')).toBe(0);
   });
 
+  it('rejects a card after the deal is complete', () => {
+    const state = playAll('NT', 'S3', 'SA', 'SK', 'S2', 'H2', 'H3', 'HA', 'D2');
+    expect(() => playCard(state, parseCard('SA'))).toThrow();
+  });
+
   it('plays a whole deal in no trump', () => {
     const state = playAll('NT', 'S3', 'SA', 'SK', 'S2', 'H2', 'H3', 'HA', 'D2');
     expect(isPlayComplete(state)).toBe(true);
@@ -112,6 +123,10 @@ describe('trickWinner', () => {
   it('lets the highest trump win', () => {
     expect(trickWinner(trick, 'S')).toBe('E');
     expect(trickWinner({ leader: 'E', cards: cards('H2', 'S3', 'S9', 'HA') }, 'S')).toBe('W');
+  });
+
+  it('lets a higher trump overtrump a lower trump', () => {
+    expect(trickWinner({ leader: 'N', cards: cards('H2', 'S3', 'S9', 'H4') }, 'S')).toBe('S');
   });
 
   it('lets the highest card of the suit led win when trumps are led', () => {
