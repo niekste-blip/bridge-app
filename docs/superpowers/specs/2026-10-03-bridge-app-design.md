@@ -136,7 +136,7 @@ Lessen zijn databestanden (JSON) met tekst, voorbeeldhanden en oefeningen. Een l
 
 ### Tussen de lessen
 
-- **Vrij spelen** kan vanaf les 1. Tot en met les 3 zonder bieden: de app laat de bots bieden, kiest een spel waarin de gebruiker leider is, en zij speelt het af. Vanaf les 4 biedt ze zelf.
+- **Vrij spelen** kan vanaf les 1. Tot en met les 3 zonder bieden: de app laat alle vier de handen door bots bieden met de volledige regelset (het lesfilter geldt hier niet, want de gebruiker biedt niet mee), deelt opnieuw tot de gebruiker leider is, toont alleen het eindcontract en laat haar het afspelen. Vanaf les 4 biedt ze zelf.
 - **Herhalen:** een knop "Oefen wat ik lastig vond" met oefeningen die eerder fout gingen. Een oefening verdwijnt uit deze lijst na twee keer achter elkaar goed.
 
 ## Interface
