@@ -91,7 +91,7 @@ Bots krijgen dezelfde regelfilter op lesnummer als de partner: het niveau bepaal
 
 Bots kijken nooit in verborgen handen.
 
-De rekenmodule is snel genoeg voor het eindspel, niet voor een hele hand: één berekening duurt enkele milliseconden bij 8 kaarten per hand, tientallen milliseconden bij 9, en minuten bij 13. Daarom simuleren de bots pas met 9 of minder kaarten in de hand. Daarvoor, de eerste vier slagen, spelen alle niveaus op vuistregels. De simulatie krijgt in de app een tijdsbudget van ongeveer anderhalve seconde: na minstens vier verdelingen stopt ze zodra dat op is. Simulatie vanaf de eerste slag vraagt een geavanceerder zoekalgoritme en is een mogelijke latere verbetering.
+De rekenmodule is snel genoeg voor het eindspel, niet voor een hele hand: één berekening duurt enkele milliseconden bij 8 kaarten per hand, tot een halve seconde bij 9, en minuten bij 13. Daarom simuleren de bots pas met 8 of minder kaarten in de hand. Daarvoor, de eerste vijf slagen, spelen alle niveaus op vuistregels. De simulatie krijgt in de app een tijdsbudget van ongeveer anderhalve seconde: na minstens één verdeling stopt ze zodra dat op is. Simulatie vanaf de eerste slag vraagt een geavanceerder zoekalgoritme en is een mogelijke latere verbetering.
 
 ### De partner
 
@@ -103,7 +103,8 @@ De partner van de gebruiker is een bot die altijd de volledige regelset gebruikt
 - **Uitleg bij een bod:** tikken op een bod in het biedverloop toont wat het belooft volgens de regel die de bot gebruikte.
 - **Nabespreking:** na elk spel maximaal drie leermomenten, de belangrijkste eerst.
   - Bieden: een bod dat afwijkt van de regel, met het voorgeschreven bod en de uitleg.
-  - Afspelen: een kaart die volgens de simulatie gemiddeld minstens één slag kost ten opzichte van de beste kaart.
+  - Afspelen: een kaart die volgens de simulatie gemiddeld minstens één slag kost ten opzichte van de beste kaart. Dit wordt alleen beoordeeld met 8 of minder kaarten in de hand, dus vanaf de zesde slag.
+  - Biedadvies en de beoordeling van het bieden gebruiken alleen regels uit lessen die de gebruiker heeft afgerond.
   - De gebruiker kan hetzelfde spel opnieuw spelen.
 
 ## Leerpad
@@ -169,7 +170,9 @@ Bediening:
 - Na elke zet wordt het lopende spel opgeslagen. Bij opnieuw openen gaat de gebruiker verder waar ze was.
 - Voortgang per les, de herhaallijst en instellingen worden lokaal bewaard.
 - Is opgeslagen data onleesbaar of van een oudere versie die niet om te zetten is, dan start de app met een leeg lopend spel en blijft de lesvoortgang waar mogelijk behouden. De gebruiker krijgt hiervan een korte melding.
-- Loopt de simulatie in de Web Worker vast of duurt die langer dan vijf seconden, dan valt de bot terug op de vuistregels.
+- Loopt de simulatie in de Web Worker vast of duurt die langer dan vijf seconden, dan valt de bot terug op de vuistregels. De worker wordt dan gestopt en opnieuw gestart.
+- Is de opslag geblokkeerd of vol, dan werkt de app door zonder te bewaren.
+- Een nieuwe versie van de app wordt op de achtergrond opgehaald en is actief nadat de app is afgesloten en opnieuw geopend.
 
 ## Testen
 
