@@ -1,0 +1,95 @@
+{
+  "number": 2,
+  "title": "Afspelen zonder troef",
+  "goal": "U kunt uw vaste slagen tellen en een lange kleur tot slagen maken.",
+  "pages": [
+    {
+      "title": "Tel eerst uw vaste slagen",
+      "text": "Voordat u de eerste kaart uit de dummy speelt, telt u uw vaste slagen. Een vaste slag is een kaart die niemand kan slaan, zoals een aas, of een heer in een kleur waarin u ook de aas heeft.\n\nTel uw eigen hand en de dummy samen, per kleur. Met ♠ A H in uw hand en ♠ 3 2 in de dummy heeft u twee vaste schoppenslagen.\n\nVergelijk dat aantal met wat u nodig heeft. Komt u slagen tekort, dan moet u ze ergens maken."
+    },
+    {
+      "title": "Een lange kleur ontwikkelen",
+      "text": "Extra slagen komen meestal uit een lange kleur. Heeft u ♦ H V B 10 en de tegenstanders de aas, dan speelt u ruiten tot de aas gevallen is. Uw overige ruiten zijn daarna de hoogste.\n\nDoe dit vroeg in het spel. U geeft de tegenstanders één slag, maar zolang u hun kleuren nog kunt stoppen met een aas, komt u weer aan slag om uw ruiten binnen te halen.\n\nSpeelt u eerst al uw azen, dan heeft u niets meer om terug aan slag te komen."
+    },
+    {
+      "title": "De hoge kaarten van de korte hand eerst",
+      "text": "Soms zitten de hoge kaarten van één kleur verdeeld over uw hand en de dummy. Speel dan eerst de hoge kaarten uit de hand met de minste kaarten in die kleur.\n\nMet ♥ H 2 in uw hand en ♥ A V B 3 in de dummy speelt u eerst de heer, en daarna de 2 naar de aas. De dummy is dan aan slag en kan de vrouw en de boer spelen.\n\nBegint u met de 2 naar de aas, dan moet uw heer later op de vrouw van de dummy. De heer wint die slag, en u zit in uw eigen hand zonder een harten om de dummy nog te bereiken."
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "id": "l2-vaste-slagen",
+      "question": "U heeft samen met de dummy ♠ A H, ♥ A en ♦ A H V. Hoeveel vaste slagen zijn dat?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 2,
+      "explanation": "Twee in schoppen, één in harten en drie in ruiten: samen 6."
+    },
+    {
+      "type": "choice",
+      "id": "l2-ontwikkelen",
+      "question": "U heeft ♦ H V B 10 tegenover ♦ 3 2 in de dummy. De tegenstanders hebben de aas. Hoeveel ruitenslagen kunt u maken?",
+      "options": ["1", "2", "3", "4"],
+      "answer": 2,
+      "explanation": "U verliest één slag aan de aas. De drie overige hoge ruiten zijn daarna slagen."
+    },
+    {
+      "type": "choice",
+      "id": "l2-wanneer",
+      "question": "Wanneer speelt u in een SA-contract de lange kleur die u nog moet ontwikkelen?",
+      "options": [
+        "Zo laat mogelijk",
+        "Vroeg, zolang u de andere kleuren nog kunt stoppen",
+        "Pas als alle azen gespeeld zijn",
+        "Alleen als de tegenstanders die kleur spelen"
+      ],
+      "answer": 1,
+      "explanation": "Ontwikkel de kleur terwijl u nog azen heeft om terug aan slag te komen."
+    },
+    {
+      "type": "play",
+      "id": "l2-incasseren",
+      "intro": "Om te beginnen: zonder troef, u bent aan slag in Zuid. Haal alle vier de slagen.",
+      "trump": "NT",
+      "leader": "S",
+      "hands": {
+        "N": "S4 S3 HA HK",
+        "E": "SQ SJ D2 D3",
+        "S": "SA SK H3 H2",
+        "W": "HQ HJ C2 C3"
+      },
+      "target": 4,
+      "explanation": "U heeft vier vaste slagen: aas en heer van schoppen in uw hand, aas en heer van harten in de dummy."
+    },
+    {
+      "type": "play",
+      "id": "l2-lange-kleur",
+      "intro": "Zonder troef. U bent aan slag in Zuid. Maak vier van de vijf slagen.",
+      "trump": "NT",
+      "leader": "S",
+      "hands": {
+        "N": "D3 D2 H2 H3 C2",
+        "E": "DA S5 S6 S7 S8",
+        "S": "DK DQ DJ DT SA",
+        "W": "SK SQ SJ ST S9"
+      },
+      "target": 4,
+      "explanation": "Speel eerst ruiten, tot de aas gevallen is. Bewaar de aas van schoppen: daarmee komt u weer aan slag om de overige ruiten te spelen."
+    },
+    {
+      "type": "play",
+      "id": "l2-korte-hand",
+      "intro": "Zonder troef. U bent aan slag in Zuid. Haal vier hartenslagen.",
+      "trump": "NT",
+      "leader": "S",
+      "hands": {
+        "N": "HA HQ HJ H3",
+        "E": "SA SK SQ SJ",
+        "S": "HK H2 S3 S2",
+        "W": "ST S9 DA DK"
+      },
+      "target": 4,
+      "explanation": "Speel eerst de heer uit de korte hand en daarna de 2 naar de aas. De dummy speelt dan de vrouw en de boer."
+    }
+  ]
+}

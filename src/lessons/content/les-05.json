@@ -1,0 +1,32 @@
+{
+  "number": 5,
+  "title": "De 1SA-opening",
+  "goal": "U weet wanneer u 1SA opent en wat u antwoordt als partner 1SA opent.",
+  "pages": [
+    {
+      "title": "15 tot en met 17 punten en een SA-verdeling",
+      "text": "De opening 1SA beschrijft uw hand heel precies: 15, 16 of 17 punten en een SA-verdeling.\n\nEen SA-verdeling is een hand zonder korte kleur: 4-3-3-3, 4-4-3-2 of 5-3-3-2. U heeft dus geen renonce, geen singleton en hooguit één doubleton.\n\nVoldoet uw hand hieraan, dan gaat 1SA voor op 1 in een kleur.",
+      "hand": "K42.Q73.AJ5.KQ62"
+    },
+    {
+      "title": "Partner weet nu veel",
+      "text": "Omdat 1SA zo precies is, kan uw partner de punten optellen. Samen 25 punten is genoeg voor de manche 3SA.\n\nMet 0 tot en met 7 punten is de manche onhaalbaar: samen hoogstens 24. Partner past, of biedt 2♦, 2♥ of 2♠ met vijf of meer kaarten in die kleur. Dat is geen uitnodiging: de opener past daarop altijd. Met een lange klaverenkleur past partner.\n\nMet 8 of 9 punten weet partner het niet zeker. Hij biedt 2SA: een uitnodiging. De opener biedt 3SA met 16 of 17 punten en past met 15."
+    },
+    {
+      "title": "Met 10 punten of meer",
+      "text": "Met 10 punten of meer zit de manche erin. Partner kiest de beste manche.\n\nZonder lange hoge kleur biedt hij 3SA.\n\nMet een zeskaart harten of schoppen biedt hij 4 in die kleur: samen zijn er dan zeker acht troeven.\n\nMet een vijfkaart harten of schoppen biedt hij 3 in die kleur. De opener kiest: 4 in die kleur met drie kaarten mee, en anders 3SA."
+    }
+  ],
+  "exercises": [
+    { "type": "bid", "id": "l5-open-1sa", "hand": "K42.Q73.AJ5.KQ62", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l5-open-1sa-vijfkaart", "hand": "AQJ52.KJ3.K4.Q62", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l5-antwoord-pas", "hand": "J52.Q73.9842.862", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-antwoord-2s", "hand": "J8542.Q73.9.8642", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-antwoord-2sa", "hand": "K52.Q73.J842.Q62", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-antwoord-3sa", "hand": "K52.Q73.A842.Q62", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-antwoord-3s", "hand": "KJ852.Q73.A4.862", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-antwoord-4s", "hand": "KJ8542.Q7.A4.862", "dealer": "N", "auction": "1NT P" },
+    { "type": "bid", "id": "l5-herbieding-pas", "hand": "K42.Q73.AJ5.KQ62", "dealer": "S", "auction": "1NT P 2NT P" },
+    { "type": "bid", "id": "l5-herbieding-4s", "hand": "K42.Q73.AJ5.KQ62", "dealer": "S", "auction": "1NT P 3S P" }
+  ]
+}

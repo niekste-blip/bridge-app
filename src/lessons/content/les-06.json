@@ -1,0 +1,35 @@
+{
+  "number": 6,
+  "title": "Antwoorden op 1 in een kleur",
+  "goal": "U weet wat u biedt als uw partner met 1 in een kleur heeft geopend.",
+  "pages": [
+    {
+      "title": "Vanaf 6 punten",
+      "text": "Uw partner heeft geopend met 1 in een kleur. Hij heeft 12 punten of meer, maar u weet nog niet hoeveel.\n\nMet 0 tot en met 5 punten past u. Met 6 punten of meer biedt u iets: uw partner kan veel sterker zijn dan 12 en wil dan nog een beurt."
+    },
+    {
+      "title": "Steun voor harten of schoppen",
+      "text": "Opent partner 1♥ of 1♠, dan heeft hij een vijfkaart. Heeft u drie kaarten in die kleur, dan zijn er samen acht troeven: een fit. Dat vertelt u meteen, en u laat zien hoe sterk u bent.\n\nMet 6 tot en met 9 punten verhoogt u naar 2.\n\nMet 10 of 11 punten verhoogt u naar 3: een uitnodiging voor de manche.\n\nMet 12 punten of meer biedt u zelf de manche: 4."
+    },
+    {
+      "title": "Een nieuwe kleur of 1SA",
+      "text": "Zonder steun biedt u een eigen kleur van vier of meer kaarten.\n\nOp 1-niveau mag dat al met 6 punten. Heeft u meerdere vierkaarten, dan biedt u de laagste eerst. Heeft u een vijfkaart, dan gaat die voor.\n\nVoor een nieuwe kleur op 2-niveau heeft u 10 punten of meer nodig. Biedt u 2♥ na 1♠ van partner, dan belooft u een vijfkaart harten.\n\nKunt u met 6 tot en met 9 punten geen kleur op 1-niveau bieden en heeft u geen steun, dan biedt u 1SA."
+    },
+    {
+      "title": "Na 1♣ of 1♦",
+      "text": "Na een opening in een lage kleur biedt u eerst een eigen vierkaart op 1-niveau, de laagste eerst. Na 1♣ is dat ook ruiten; zo vindt u samen een hoge kleur als die er is.\n\nHeeft u geen kleur om op 1-niveau te bieden, dan kijkt u naar uw punten.\n\nMet 6 tot en met 9 punten steunt u de kleur van partner naar 2 als u vier ruiten of vijf klaveren heeft. Anders biedt u 1SA.\n\nMet 10 punten of meer en een SA-verdeling biedt u SA: 2SA met 10 of 11 punten, 3SA met 12 of meer. Zonder SA-verdeling biedt u een eigen kleur op 2-niveau, of steunt u de kleur van partner naar 3 met 10 of 11 punten."
+    }
+  ],
+  "exercises": [
+    { "type": "bid", "id": "l6-pas", "hand": "K52.Q73.9842.862", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-steun-2h", "hand": "K52.Q73.J842.862", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-steun-3h", "hand": "K52.QJ73.A842.82", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-steun-4h", "hand": "K52.QJ73.A842.K2", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-nieuwe-kleur-1s", "hand": "KJ52.73.Q842.862", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-1sa", "hand": "K52.73.Q842.J862", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-2-niveau", "hand": "K52.73.AQ842.J86", "dealer": "N", "auction": "1H P" },
+    { "type": "bid", "id": "l6-2h-vijfkaart", "hand": "K5.QJ873.A842.86", "dealer": "N", "auction": "1S P" },
+    { "type": "bid", "id": "l6-laagste-eerst", "hand": "KJ52.Q873.42.862", "dealer": "N", "auction": "1D P" },
+    { "type": "bid", "id": "l6-2sa", "hand": "K52.Q73.AJ42.862", "dealer": "N", "auction": "1D P" }
+  ]
+}

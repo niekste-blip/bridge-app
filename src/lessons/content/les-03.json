@@ -1,0 +1,100 @@
+{
+  "number": 3,
+  "title": "Afspelen met troef",
+  "goal": "U weet wanneer u troef trekt en hoe u verliezers aftroeft in de dummy.",
+  "pages": [
+    {
+      "title": "Wat troef doet",
+      "text": "In een troefcontract is één kleur sterker dan de andere drie. Wie een kleur niet kan bekennen, mag troeven: de laagste troef wint dan van de hoogste kaart in een andere kleur.\n\nDat werkt in uw voordeel, maar ook in dat van de tegenstanders. Uw aas van harten is niets waard als een tegenstander geen harten meer heeft en nog wel een troef."
+    },
+    {
+      "title": "Troef trekken",
+      "text": "Daarom begint de leider meestal met troef trekken: hij speelt troef tot de tegenstanders er geen meer hebben. Daarna zijn zijn hoge kaarten in de andere kleuren veilig.\n\nTel mee. Er zijn 13 troeven. Heeft u er samen met de dummy 8, dan hebben de tegenstanders er 5. Na elke ronde troef weet u hoeveel er nog buiten zitten.\n\nHoud zelf troeven over als dat kan. Stop met troef spelen zodra de tegenstanders er geen meer hebben."
+    },
+    {
+      "title": "Aftroeven in de dummy",
+      "text": "Soms trekt u niet meteen troef. Heeft de dummy weinig kaarten in een kleur waarin u verliezers heeft, dan kunt u die verliezers in de dummy aftroeven.\n\nDat lukt alleen zolang de dummy nog troeven heeft. Speel in dat geval eerst uw verliezers en troef ze in de dummy. Trek daarna pas de troeven van de tegenstanders.\n\nDe vuistregel: aftroeven met de korte troefhand levert extra slagen op. Aftroeven met de lange troefhand meestal niet, want die troeven waren al slagen."
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "id": "l3-waarom-trekken",
+      "question": "Waarom trekt de leider meestal eerst troef?",
+      "options": [
+        "Omdat de regels dat voorschrijven",
+        "Zodat de tegenstanders zijn hoge kaarten niet kunnen aftroeven",
+        "Omdat troef de laagste kleur is",
+        "Om de dummy te laten zien"
+      ],
+      "answer": 1,
+      "explanation": "Zolang de tegenstanders troeven hebben, kunnen zij uw azen en heren aftroeven."
+    },
+    {
+      "type": "choice",
+      "id": "l3-tellen",
+      "question": "U heeft samen met de dummy 8 troeven. Hoeveel hebben de tegenstanders er?",
+      "options": ["3", "4", "5", "6"],
+      "answer": 2,
+      "explanation": "Er zijn 13 kaarten in elke kleur: 13 - 8 = 5."
+    },
+    {
+      "type": "choice",
+      "id": "l3-eerst-aftroeven",
+      "question": "De dummy heeft twee troeven en geen ruiten. U heeft twee verliezende ruiten. Wat doet u eerst?",
+      "options": [
+        "Troef trekken",
+        "De ruiten spelen en in de dummy aftroeven",
+        "Een andere kleur spelen",
+        "Het maakt niet uit"
+      ],
+      "answer": 1,
+      "explanation": "Trekt u eerst troef, dan zijn de troeven van de dummy weg en verliest u beide ruiten."
+    },
+    {
+      "type": "play",
+      "id": "l3-troef-trekken",
+      "intro": "Schoppen is troef. U bent aan slag in Zuid. Haal alle vier de slagen.",
+      "trump": "S",
+      "leader": "S",
+      "hands": {
+        "N": "S4 S3 S2 H2",
+        "E": "SJ S5 DA DK",
+        "S": "SA SK SQ HA",
+        "W": "ST S6 CA CK"
+      },
+      "target": 4,
+      "explanation": "Speel eerst aas en heer van schoppen: dan zijn de troeven van de tegenstanders weg. Daarna is de aas van harten veilig."
+    },
+    {
+      "type": "play",
+      "id": "l3-aftroeven",
+      "intro": "Harten is troef. U bent aan slag in Zuid. Haal alle vier de slagen.",
+      "trump": "H",
+      "leader": "S",
+      "hands": {
+        "N": "H3 H2 C3 C2",
+        "E": "DA DK DQ SA",
+        "S": "HA HK D3 D2",
+        "W": "DJ DT SK SQ"
+      },
+      "target": 4,
+      "explanation": "Speel een ruiten en troef in de dummy. Speel een klaveren terug en troef in uw hand. Zo maakt u al uw troeven apart."
+    },
+    {
+      "type": "play",
+      "id": "l3-daarna-bijkleur",
+      "intro": "Schoppen is troef. U bent aan slag in Zuid. Haal alle vijf de slagen.",
+      "trump": "S",
+      "leader": "S",
+      "hands": {
+        "N": "S3 S2 H4 H3 H2",
+        "E": "SQ S5 DA DK DQ",
+        "S": "SA SK HA HK HQ",
+        "W": "SJ S6 CA CK CQ"
+      },
+      "target": 5,
+      "explanation": "Trek eerst twee keer troef. Daarna kunnen de tegenstanders uw harten niet meer aftroeven."
+    }
+  ]
+}

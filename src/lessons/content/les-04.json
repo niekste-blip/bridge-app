@@ -1,0 +1,52 @@
+{
+  "number": 4,
+  "title": "Punten tellen en openen",
+  "goal": "U kunt uw hand waarderen en weet waarmee u het bieden opent.",
+  "pages": [
+    {
+      "title": "Honneurpunten",
+      "text": "Om te weten hoe sterk uw hand is, telt u punten voor de hoge kaarten: een aas is 4 punten, een heer 3, een vrouw 2 en een boer 1.\n\nIn het hele spel zitten 40 punten. Een gemiddelde hand heeft er dus 10.\n\nDeze hand telt 13 punten: aas en heer van schoppen (7), de vrouw van harten (2) en de heer en boer van ruiten (4).",
+      "hand": "AK52.Q73.KJ4.862"
+    },
+    {
+      "title": "Openen vanaf 12 punten",
+      "text": "Het eerste bod dat geen pas is, heet de opening. U opent met 12 punten of meer. Heeft u er minder, dan past u.\n\nMet samen ongeveer 25 punten kunnen u en uw partner een manche halen: een contract dat extra veel oplevert. Daarom is het belangrijk dat uw partner uit uw opening kan afleiden dat u minstens 12 punten heeft."
+    },
+    {
+      "title": "Welke kleur?",
+      "text": "U opent met 1 in uw langste kleur.\n\nVoor harten en schoppen, de hoge kleuren, heeft u minstens vijf kaarten nodig. Dat heet vijfkaart hoog. Heeft u twee kleuren van vijf, dan opent u de hoogste.\n\nHeeft u geen vijfkaart, dan opent u in een lage kleur: 1♦ met vier of meer ruiten, en anders 1♣. Die 1♣ kan dus een korte kleur zijn."
+    },
+    {
+      "title": "Voorbeelden",
+      "text": "Met deze hand opent u 1♠: 13 punten en een vijfkaart schoppen.\n\nZonder die vijfde schoppen had u geen vijfkaart hoog. U opent dan in een lage kleur: 1♦ met vier ruiten, en anders 1♣.",
+      "hand": "AKJ52.Q73.K4.862"
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "id": "l4-tel-12",
+      "question": "Hoeveel punten heeft deze hand?",
+      "hand": "AK5.Q73.K4.86432",
+      "options": ["10", "11", "12", "13"],
+      "answer": 2,
+      "explanation": "Aas 4 en heer 3 in schoppen, vrouw 2 in harten, heer 3 in ruiten: samen 12."
+    },
+    {
+      "type": "choice",
+      "id": "l4-tel-15",
+      "question": "Hoeveel punten heeft deze hand?",
+      "hand": "QJ4.KJ2.A983.KJ5",
+      "options": ["13", "14", "15", "16"],
+      "answer": 2,
+      "explanation": "Schoppen 3, harten 4, ruiten 4, klaveren 4: samen 15."
+    },
+    { "type": "bid", "id": "l4-open-1s", "hand": "AKJ52.Q73.K4.862", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-open-1h", "hand": "K73.AQJ52.84.K62", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-open-1d", "hand": "KQ4.A72.QJ63.J52", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-open-1c", "hand": "KQ42.AJ73.Q63.J5", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-pas", "hand": "Q8642.K73.84.K62", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-twee-vijfkaarten", "hand": "AK852.KQ963.4.72", "dealer": "S", "auction": "" },
+    { "type": "bid", "id": "l4-na-passen", "hand": "AQ4.K7.KJ8532.J5", "dealer": "N", "auction": "P P" }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "number": 1,
+  "title": "Bridge in vogelvlucht",
+  "goal": "U weet hoe een spel bridge verloopt: partners, bieden, het contract en de dummy.",
+  "pages": [
+    {
+      "title": "Vier spelers, twee paren",
+      "text": "Bridge speelt u met vier personen. Noord en Zuid vormen samen een paar, Oost en West het andere. In deze app bent u altijd Zuid en is Noord uw partner.\n\nIedereen krijgt 13 kaarten. Net als bij klaverjassen of hartenjagen speelt iedere speler om de beurt één kaart. Die vier kaarten samen heten een slag. U moet de gevraagde kleur bijspelen als u die heeft: dat heet bekennen. De hoogste kaart in de gevraagde kleur wint de slag, tenzij er getroefd wordt.\n\nDe rangorde van hoog naar laag is: aas, heer, vrouw, boer, 10, 9 en zo verder tot de 2."
+    },
+    {
+      "title": "Eerst bieden, dan spelen",
+      "text": "Elk spel bestaat uit twee delen. Eerst wordt er geboden. Met een bod zegt u hoeveel slagen uw paar denkt te halen en welke kleur troef moet worden.\n\nOm de beurt doet iedereen een bod of past. Elk bod moet hoger zijn dan het vorige. Als na een bod drie spelers achter elkaar passen, is het bieden afgelopen. Het laatste bod is het contract. Past iedereen meteen, dan wordt het spel niet gespeeld.\n\nDe speler van het winnende paar die de kleur van het contract als eerste noemde, heet de leider."
+    },
+    {
+      "title": "Het boekje van zes",
+      "text": "Een bod bestaat uit een getal en een kleur, bijvoorbeeld 1♠ of 3SA. Het getal telt de slagen boven de zes. De eerste zes slagen heten het boekje.\n\n1♠ betekent dus: wij halen minstens 7 van de 13 slagen, met schoppen als troef. 4♥ is 10 slagen met harten als troef.\n\nSA betekent sans atout: zonder troef. In 3SA moet de leider 9 slagen halen en is er geen troefkleur."
+    },
+    {
+      "title": "De dummy",
+      "text": "Na het bieden komt de speler links van de leider uit: hij speelt de eerste kaart.\n\nDaarna legt de partner van de leider al zijn kaarten open op tafel. Die hand heet de dummy. De leider speelt zijn eigen kaarten en ook die van de dummy. Dat is het grote verschil met andere slagenspellen: u ziet 26 kaarten en bepaalt van allebei wat er gespeeld wordt.\n\nDe twee andere spelers zijn de tegenspelers. Zij proberen te voorkomen dat de leider zijn contract haalt. Haalt de leider te weinig slagen, dan gaat hij down."
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "id": "l1-slagen-3sa",
+      "question": "Hoeveel slagen moet de leider halen in een contract van 3SA?",
+      "options": ["3", "7", "9", "10"],
+      "answer": 2,
+      "explanation": "Het boekje van zes plus de drie van het bod: 6 + 3 = 9 slagen."
+    },
+    {
+      "type": "choice",
+      "id": "l1-slagen-4h",
+      "question": "Het contract is 4♥. Hoeveel slagen zijn dat?",
+      "options": ["4", "9", "10", "11"],
+      "answer": 2,
+      "explanation": "6 + 4 = 10 slagen, met harten als troef."
+    },
+    {
+      "type": "choice",
+      "id": "l1-wie-dummy",
+      "question": "Wie legt zijn kaarten open op tafel?",
+      "options": ["De leider", "De partner van de leider", "De speler die uitkomt", "Niemand"],
+      "answer": 1,
+      "explanation": "De partner van de leider is de dummy. Zijn kaarten liggen open en de leider speelt ze."
+    },
+    {
+      "type": "choice",
+      "id": "l1-wie-uit",
+      "question": "Wie speelt de eerste kaart van het spel?",
+      "options": ["De leider", "De dummy", "De speler links van de leider", "De speler rechts van de leider"],
+      "answer": 2,
+      "explanation": "De speler links van de leider komt uit. Pas daarna gaat de dummy open."
+    },
+    {
+      "type": "choice",
+      "id": "l1-zuid-leider",
+      "question": "Zuid is leider. Wie beslist welke kaart er uit de hand van Noord wordt gespeeld?",
+      "options": ["Noord", "Zuid", "Oost", "West"],
+      "answer": 1,
+      "explanation": "Noord is de dummy. De leider, Zuid, speelt beide handen."
+    },
+    {
+      "type": "choice",
+      "id": "l1-down",
+      "question": "Het contract is 2♠. De leider haalt 7 slagen. Wat is de uitslag?",
+      "options": ["Contract gemaakt", "1 overslag", "1 down", "2 down"],
+      "answer": 2,
+      "explanation": "Voor 2♠ zijn 6 + 2 = 8 slagen nodig. Met 7 slagen komt de leider er één tekort: 1 down."
+    },
+    {
+      "type": "choice",
+      "id": "l1-sa",
+      "question": "Wat betekent SA in een bod als 1SA?",
+      "options": ["Schoppen aas", "Zonder troef", "Slag af", "Alle kleuren zijn troef"],
+      "answer": 1,
+      "explanation": "SA staat voor sans atout: er is geen troefkleur. De hoogste kaart in de gevraagde kleur wint altijd."
+    }
+  ]
+}

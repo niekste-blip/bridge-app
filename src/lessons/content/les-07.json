@@ -1,0 +1,35 @@
+{
+  "number": 7,
+  "title": "De herbieding",
+  "goal": "U weet wat u als opener biedt nadat uw partner heeft geantwoord.",
+  "pages": [
+    {
+      "title": "Uw tweede bod",
+      "text": "U heeft geopend en uw partner heeft geantwoord. Met uw tweede bod, de herbieding, vertelt u twee dingen: hoe sterk uw hand is en hoe hij eruitziet.\n\nMet 12 tot en met 15 punten heeft u een minimale opening. U biedt zo laag mogelijk.\n\nMet 16 tot en met 18 punten biedt u een stap hoger. Met 19 punten of meer biedt u de manche."
+    },
+    {
+      "title": "Partner heeft uw kleur gesteund",
+      "text": "Heeft partner uw harten of schoppen verhoogd naar 2, dan heeft hij 6 tot en met 9 punten.\n\nMet hooguit 15 punten past u: de manche zit er niet in. Met 16 tot en met 18 nodigt u uit met 3. Met 19 of meer biedt u 4.\n\nHeeft partner naar 3 verhoogd, dan nodigt hij uit met 10 of 11 punten. U past met een minimum van 12 of 13, en biedt 4 met 14 of meer."
+    },
+    {
+      "title": "Partner bood een nieuwe kleur",
+      "text": "Een nieuwe kleur van partner is geen eindbod: u moet nog een keer bieden. In deze volgorde kijkt u wat past.\n\nHeeft u vier kaarten in de hoge kleur van partner, dan steunt u die: 2 met een minimum, 3 met 16 tot en met 18, 4 met 19 of meer.\n\nKunt u zelf nog een kleur op 1-niveau bieden, dan doet u dat.\n\nMet een SA-verdeling biedt u SA: 1SA met 12 tot en met 14 punten.\n\nMet een zeskaart herhaalt u uw eigen kleur. Met een tweede kleur die lager is dan uw eerste, biedt u die op 2-niveau."
+    },
+    {
+      "title": "Partner bood 1SA",
+      "text": "Met 1SA zegt partner: 6 tot en met 9 punten, geen steun en geen kleur om op 1-niveau te bieden.\n\nMet een minimum en een SA-verdeling past u. 1SA is dan een goed contract.\n\nMet een zeskaart herhaalt u uw kleur. Met een tweede kleur en geen SA-verdeling biedt u die op 2-niveau.\n\nMet 18 punten of meer en een SA-verdeling biedt u 3SA. Met 19 punten of meer biedt u ook zonder SA-verdeling de manche."
+    }
+  ],
+  "exercises": [
+    { "type": "bid", "id": "l7-na-steun-pas", "hand": "K73.AQJ52.84.K62", "dealer": "S", "auction": "1H P 2H P" },
+    { "type": "bid", "id": "l7-na-steun-uitnodigen", "hand": "K73.AQJ52.A.K962", "dealer": "S", "auction": "1H P 2H P" },
+    { "type": "bid", "id": "l7-na-steun-manche", "hand": "K73.AQJ52.A4.KQ2", "dealer": "S", "auction": "1H P 2H P" },
+    { "type": "bid", "id": "l7-uitnodiging-aannemen", "hand": "K73.AQJ52.4.KQ62", "dealer": "S", "auction": "1H P 3H P" },
+    { "type": "bid", "id": "l7-steun-partner", "hand": "KJ73.AQJ52.84.K2", "dealer": "S", "auction": "1H P 1S P" },
+    { "type": "bid", "id": "l7-1sa", "hand": "K73.AQJ52.84.K62", "dealer": "S", "auction": "1H P 1S P" },
+    { "type": "bid", "id": "l7-zeskaart", "hand": "K7.AQJ852.84.K62", "dealer": "S", "auction": "1H P 1S P" },
+    { "type": "bid", "id": "l7-tweede-kleur", "hand": "K7.AQJ52.84.KJ62", "dealer": "S", "auction": "1H P 1S P" },
+    { "type": "bid", "id": "l7-nieuwe-kleur-1-niveau", "hand": "AQ42.K73.J63.K52", "dealer": "S", "auction": "1C P 1H P" },
+    { "type": "bid", "id": "l7-na-1sa-pas", "hand": "K73.AQJ52.84.K62", "dealer": "S", "auction": "1H P 1NT P" }
+  ]
+}
