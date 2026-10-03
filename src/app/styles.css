@@ -248,6 +248,8 @@ input:focus-visible {
   font-weight: 700;
   flex: none;
   transition: transform 0.12s;
+  /* Keeps overlapping cards in hand order, also when some of them are greyed out */
+  position: relative;
 }
 
 .card-rank {
