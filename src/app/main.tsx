@@ -12,3 +12,10 @@ createRoot(root).render(
     <App />
   </StrictMode>,
 );
+
+// Offline support only in the built app; during development it would serve stale files
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register('./sw.js');
+  });
+}
