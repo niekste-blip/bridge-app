@@ -91,7 +91,7 @@ Bots krijgen dezelfde regelfilter op lesnummer als de partner: het niveau bepaal
 
 Bots kijken nooit in verborgen handen.
 
-De aantallen verdelingen zijn startwaarden. Ze worden bijgesteld zodat een bot op een tablet binnen ongeveer twee seconden speelt.
+De rekenmodule is snel genoeg voor het eindspel, niet voor een hele hand: één berekening duurt enkele milliseconden bij 8 kaarten per hand, tientallen milliseconden bij 9, en minuten bij 13. Daarom simuleren de bots pas met 9 of minder kaarten in de hand. Daarvoor, de eerste vier slagen, spelen alle niveaus op vuistregels. De simulatie krijgt in de app een tijdsbudget van ongeveer anderhalve seconde: na minstens vier verdelingen stopt ze zodra dat op is. Simulatie vanaf de eerste slag vraagt een geavanceerder zoekalgoritme en is een mogelijke latere verbetering.
 
 ### De partner
 
