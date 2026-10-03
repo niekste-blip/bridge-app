@@ -69,7 +69,7 @@ De voorwaarde is gesplitst in `situation` en `requires`, zodat uit een bod van e
 
 De regelset is te filteren op een maximaal lesnummer. Zo bieden bots nooit iets wat de gebruiker nog niet geleerd heeft.
 
-Past geen enkele regel, dan geldt een vangnet: pas, of het goedkoopste geldige bod dat de eigen kleur steunt als passen niet verantwoord is. Het vangnet heeft de uitleg "geen specifieke afspraak".
+Past geen enkele regel, dan geldt een vangnet: pas, of het goedkoopste geldige bod dat de eigen kleur steunt als passen niet verantwoord is. Het vangnet biedt de manche als de eigen punten plus het door partner beloofde minimum 25 of meer zijn, geeft één keer voorkeur tussen twee kleuren van partner, en past anders. Elk bod meldt of het uit een regel of uit het vangnet komt.
 
 ## Bots
 
@@ -81,7 +81,7 @@ Er zijn drie niveaus voor de tegenstanders.
 | Gemiddeld | Volledige regelset zonder conventies uit les 11 en 13 | Simulatie met 20 verdelingen; kiest met 15 procent kans de op één na beste kaart |
 | Moeilijk | Volledige regelset | Simulatie met 100 verdelingen; kiest altijd de beste kaart |
 
-Bots krijgen dezelfde regelfilter op lesnummer als de partner: het niveau bepaalt het plafond, de voortgang van de gebruiker begrenst het verder.
+Bots krijgen dezelfde regelfilter op lesnummer als de partner: het niveau bepaalt het plafond, de voortgang van de gebruiker begrenst het verder. De ondergrens is les 7: openen, antwoorden en herbieden horen bij elkaar, en een bot die alleen kan openen laat elk biedverloop doodlopen. Het filter werkt dus pas vanaf de conventies van les 10 en later. In lesoefeningen geldt het lesnummer van de oefening zonder ondergrens.
 
 ### Simulatie
 

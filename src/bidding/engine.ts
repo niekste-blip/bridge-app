@@ -1,5 +1,5 @@
 import { type Auction, type Hand, isAuctionComplete, sameCall } from '../core';
-import { type Choice, NO_AGREEMENT, fallbackChoice } from './fallback';
+import { type Choice, fallbackChoice } from './fallback';
 import { type BiddingRule, selectRule } from './rule';
 import { ALL_RULES } from './rules';
 import { viewOf } from './view';
@@ -17,22 +17,28 @@ export function chooseCall(hand: Hand, auction: Auction, options: BiddingOptions
   const maxLesson = options.maxLesson ?? Infinity;
   const chosen = selectRule(rules, hand, auction, maxLesson);
   if (chosen) {
-    return { call: chosen.call, ruleId: chosen.id, explanation: chosen.explanation };
+    return { call: chosen.call, ruleId: chosen.id, explanation: chosen.explanation, source: 'rule' };
   }
   return fallbackChoice(rules, hand, auction, maxLesson);
 }
 
-export function explainCall(auction: Auction, index: number, options: BiddingOptions = {}): string {
+// Every meaning the rules give to the call at this position, most likely first.
+// A bot knows which rule it used (Choice.explanation); this is for calls made by anyone.
+export function meaningsOf(auction: Auction, index: number, options: BiddingOptions = {}): string[] {
   const rules = options.rules ?? ALL_RULES;
   const maxLesson = options.maxLesson ?? Infinity;
   const call = auction.calls[index];
-  const before = viewOf({ dealer: auction.dealer, calls: auction.calls.slice(0, index) });
-  let best: BiddingRule | null = null;
-  for (const candidate of rules) {
-    if (candidate.lesson > maxLesson) continue;
-    if (best && candidate.priority <= best.priority) continue;
-    if (!sameCall(candidate.call, call) || !candidate.situation(before)) continue;
-    best = candidate;
+  if (!call) {
+    throw new RangeError(`No call at index ${index}`);
   }
-  return best ? best.explanation : NO_AGREEMENT;
+  const before = viewOf({ dealer: auction.dealer, calls: auction.calls.slice(0, index) });
+  return rules
+    .filter(
+      (candidate) =>
+        candidate.lesson <= maxLesson &&
+        sameCall(candidate.call, call) &&
+        candidate.situation(before),
+    )
+    .sort((a, b) => b.priority - a.priority)
+    .map((candidate) => candidate.explanation);
 }

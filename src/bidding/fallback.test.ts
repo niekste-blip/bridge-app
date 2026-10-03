@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { auctionFrom, callText, parseHand } from '../core';
-import { NO_AGREEMENT, fallbackChoice } from './fallback';
+import { fallbackChoice } from './fallback';
 import { ALL_RULES } from './rules';
 
 const fallback = (hand: string, auction: string) =>
@@ -12,7 +12,8 @@ describe('fallbackChoice', () => {
     const choice = fallback('KJ52.73.Q842.862', '1H 1S');
     expect(callText(choice.call)).toBe('P');
     expect(choice.ruleId).toBe('fallback-pass');
-    expect(choice.explanation).toBe(NO_AGREEMENT);
+    expect(choice.explanation).toBe('Pas: geen afspraak die een bod voorschrijft.');
+    expect(choice.source).toBe('fallback');
   });
 
   it('passes when the partnership has not bid', () => {
@@ -53,5 +54,18 @@ describe('fallbackChoice', () => {
 
   it('passes with more cards in the second suit of partner', () => {
     expect(call('KJ852.7.Q84.8762', '1H P 1S P 2C P')).toBe('P');
+  });
+
+  it('does not prefer a minor that may be short on equal length', () => {
+    expect(call('J73.QJ852.K4.J73', '1C P 1H P 1S P')).toBe('P');
+  });
+
+  it('does not answer a preference with another preference', () => {
+    expect(call('AQ42.K73.J53.K62', '1C P 1H P 1S P 2C P')).toBe('P');
+    expect(call('Q872.KQ62.AQ5.72', '1C P 1D P 1H P 2C P')).toBe('P');
+  });
+
+  it('does not leave a suit that partner raised', () => {
+    expect(call('Q2.9765.AT7.T952', '1C P 1H P 2H P')).toBe('P');
   });
 });

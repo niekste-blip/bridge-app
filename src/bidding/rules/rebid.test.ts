@@ -46,8 +46,9 @@ describe('after a 1NT response', () => {
     expect(rebid('1H P 1NT', 'A7.AQJ852.K4.K62')).toBe('3H'); // 17
   });
 
-  it('shows a lower second suit', () => {
+  it('shows a lower second suit with an unbalanced hand', () => {
     expect(rebid('1H P 1NT', 'K7.AQJ52.84.KJ62')).toBe('2C');
+    expect(rebid('1D P 1NT', 'K52.Q4.AJ82.KJ62')).toBe('P'); // balanced: 1NT is fine
   });
 
   it('bids 3NT with 18 or more balanced', () => {
@@ -74,6 +75,13 @@ describe('after a new suit at the one level', () => {
   it('bids no trump with a balanced hand', () => {
     expect(rebid('1H P 1S', 'K73.AQJ52.84.K62')).toBe('1NT'); // 13
     expect(rebid('1H P 1S', 'AK3.AQJ52.K4.Q62')).toBe('2NT'); // 19
+    expect(rebid('1H P 1S', 'AK3.AQJ52.KQ4.Q6')).toBe('3NT'); // 21
+    expect(rebid('1C P 1D', 'KQ76.A64.KT.AQ84')).toBe('2NT'); // 18: before a new suit
+  });
+
+  it('bids game with 19 or more points and no better bid', () => {
+    expect(rebid('1H P 1S', 'A4.AKQ52.3.AQJ62')).toBe('3NT'); // 20, five-five
+    expect(rebid('1H P 1S', 'A4.AKQ852.K3.A62')).toBe('4H'); // 20, six hearts
   });
 
   it('rebids a six-card suit', () => {
@@ -119,6 +127,11 @@ describe('after a new suit at the two level', () => {
 
   it('repeats the opening suit when nothing else fits', () => {
     expect(rebid('1D P 2C', 'KQ42.AJ73.K863.5')).toBe('2D'); // 13, 4-4-4-1
+  });
+
+  it('bids game with 15 or more points', () => {
+    expect(rebid('1S P 2H', 'AKJ52.K4.A3.K862')).toBe('3NT'); // 18, no heart support
+    expect(rebid('1S P 2D', 'KQT843.K.A954.AJ')).toBe('3S'); // 17, six spades
   });
 });
 

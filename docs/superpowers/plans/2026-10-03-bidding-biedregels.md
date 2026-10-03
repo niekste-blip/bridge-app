@@ -10,6 +10,8 @@
 
 Spec: `docs/superpowers/specs/2026-10-03-bridge-app-design.md`. Dit plan dekt stap 2 van de bouwvolgorde voor les 4 tot en met 7. Tussenbieden (les 10), Stayman en Jacoby (les 11) en de sterke en zwakke openingen (les 13) volgen in latere plannen.
 
+> **Na de eindcontrole aangepast.** De code wijkt op deze punten af van de codeblokken hieronder; de code in `src/bidding` is leidend. (1) Het vangnet geeft alleen nog voorkeur tussen twee kleuren van partner zelf, en hooguit één keer. (2) De herbieding kent bovengrenzen: met 19 of meer punten (15 of meer na een antwoord op 2-niveau) biedt de opener de manche. (3) Een verhoging van 1♣/1♦ naar 3 is 10-11 punten; met 12 of meer en steun volgt 3SA. (4) `explainCall` is vervangen door `meaningsOf`, dat alle betekenissen van een bod geeft. (5) `Choice` heeft een veld `source` (`rule` of `fallback`). (6) Uitlegteksten zeggen "SA-verdeling" in plaats van "verdeeld".
+
 ## Global Constraints
 
 - Werkmap voor alle commando's: de map `bridge-app` (de git-root).

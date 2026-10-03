@@ -37,7 +37,7 @@ export const OPENING_RULES: readonly BiddingRule[] = [
     bid(1, 'NT'),
     isOpening,
     { hcp: points(15, 17), balanced: true },
-    '15 tot en met 17 punten en een verdeelde hand.',
+    '15 tot en met 17 punten en een SA-verdeling.',
   ),
   ...(['S', 'H', 'D', 'C'] as const).map(openOneOfSuit),
   rule(

@@ -18,6 +18,7 @@ import { chooseCall, viewOf } from './index';
 
 interface Step {
   readonly ruleId: string;
+  readonly source: 'rule' | 'fallback';
   readonly early: boolean;
 }
 
@@ -32,6 +33,7 @@ function bidOut(hands: Record<Seat, Hand>, dealer: Seat, maxLesson = 7) {
     // Opening, response and opener's rebid: at most one earlier bid by each partner
     steps.push({
       ruleId: choice.ruleId,
+      source: choice.source,
       early: view.opponentsSilent && view.myBids.length <= 1 && view.partnerBids.length <= 1,
     });
     auction = addCall(auction, choice.call);
@@ -94,7 +96,7 @@ describe('random deals', () => {
   it('never needs the fallback for an opening, a response or the opener rebid', () => {
     const gaps = results.flatMap(({ seed, steps }) =>
       steps
-        .filter((step) => step.early && step.ruleId.startsWith('fallback'))
+        .filter((step) => step.early && step.source === 'fallback')
         .map((step) => `seed ${seed}: ${step.ruleId}`),
     );
     expect(gaps).toEqual([]);

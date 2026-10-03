@@ -80,7 +80,7 @@ function responsesTo(opened: Suit): BiddingRule[] {
         bid(3, 'NT'),
         situation,
         { hcp: points(12), balanced: true, lengths: NO_FOUR_CARD_MAJOR },
-        'vanaf 12 punten, verdeeld, geen 4-kaart harten of schoppen.',
+        'vanaf 12 punten, een SA-verdeling en geen 4-kaart harten of schoppen.',
       ),
       rule(
         `resp-2NT-${opened}`,
@@ -89,7 +89,7 @@ function responsesTo(opened: Suit): BiddingRule[] {
         bid(2, 'NT'),
         situation,
         { hcp: points(10, 11), balanced: true, lengths: NO_FOUR_CARD_MAJOR },
-        '10 of 11 punten, verdeeld, geen 4-kaart harten of schoppen.',
+        '10 of 11 punten, een SA-verdeling en geen 4-kaart harten of schoppen.',
       ),
     );
   }
@@ -133,8 +133,17 @@ function responsesTo(opened: Suit): BiddingRule[] {
         30,
         bid(3, opened),
         situation,
-        { hcp: points(10), lengths: support },
-        `vanaf 10 punten en minstens ${supportLength} ${openedName} mee, geen 4-kaart harten of schoppen.`,
+        { hcp: points(10, 11), lengths: support },
+        `10 of 11 punten en minstens ${supportLength} ${openedName} mee, geen 4-kaart harten of schoppen; uitnodiging voor de manche.`,
+      ),
+      rule(
+        `resp-3NT-support-${opened}`,
+        LESSON,
+        30,
+        bid(3, 'NT'),
+        situation,
+        { hcp: points(12), lengths: support },
+        `vanaf 12 punten en minstens ${supportLength} ${openedName} mee, geen 4-kaart harten of schoppen; genoeg voor de manche.`,
       ),
     );
   }

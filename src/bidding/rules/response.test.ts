@@ -51,6 +51,10 @@ describe('responding to one of a minor', () => {
     expect(respond('1C', 'K52.73.842.QJ862')).toBe('2C');
   });
 
+  it('bids 3NT with support and 12 or more points', () => {
+    expect(respond('1D', 'AQ5.K84.KQ8753.3')).toBe('3NT'); // 14
+  });
+
   it('bids no trump with a balanced hand without a four-card major', () => {
     expect(respond('1D', 'K52.Q73.J8.Q8642')).toBe('1NT');
     expect(respond('1C', 'K52.Q73.842.J862')).toBe('1NT');

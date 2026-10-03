@@ -27,7 +27,8 @@ export const NOTRUMP_RULES: readonly BiddingRule[] = [
       `vanaf 10 punten en minstens 6 ${SUIT_NAME[major]}; genoeg voor de manche.`,
     ),
   ),
-  ...MAJORS.map((major) =>
+  // Spades first: with five cards in both majors 3♠ keeps both fits in play
+  ...(['S', 'H'] as const).map((major) =>
     rule(
       `nt-resp-3${major}`,
       LESSON,
@@ -98,7 +99,7 @@ export const NOTRUMP_RULES: readonly BiddingRule[] = [
     20,
     bid(3, 'NT'),
     after(bid(2, 'NT')),
-    { hcp: points(16) },
+    { hcp: points(16, 17) },
     '16 of 17 punten, de uitnodiging wordt aangenomen.',
   ),
   rule(
@@ -107,8 +108,8 @@ export const NOTRUMP_RULES: readonly BiddingRule[] = [
     10,
     PASS,
     after(bid(2, 'NT')),
-    {},
-    '15 punten, de uitnodiging wordt afgeslagen.',
+    { hcp: points(0, 15) },
+    'hooguit 15 punten, de uitnodiging wordt afgeslagen.',
   ),
   ...MAJORS.map((major) =>
     rule(

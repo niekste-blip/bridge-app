@@ -28,6 +28,7 @@ describe('responding to 1NT', () => {
   it('shows a five-card major with 10 or more points', () => {
     expect(respond('KJ852.Q73.A4.862')).toBe('3S');
     expect(respond('K52.QJ873.A4.862')).toBe('3H');
+    expect(respond('AQ852.KJ854.4.73')).toBe('3S'); // five-five: spades first
   });
 
   it('bids game in a six-card major with 10 or more points', () => {
