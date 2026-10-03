@@ -27,7 +27,7 @@ Een Nederlandstalige app waarmee de moeder van de opdrachtgever bridge leert en 
 - TypeScript, React, Vite.
 - Installeerbare web-app (PWA) met service worker, zodat de app offline werkt en op het beginscherm gezet kan worden.
 - Rekenwerk van bots en coach draait in een Web Worker, zodat het scherm niet hapert.
-- Opslag lokaal in de browser (IndexedDB) voor voortgang, instellingen en het lopende spel.
+- Opslag lokaal in de browser (`localStorage`) voor voortgang, instellingen en het lopende spel. De gegevens zijn klein genoeg; IndexedDB is niet nodig.
 - Tests met Vitest.
 - Hosting: statisch (bijvoorbeeld GitHub Pages of Netlify). De keuze volgt later; tot die tijd draait de app lokaal.
 
