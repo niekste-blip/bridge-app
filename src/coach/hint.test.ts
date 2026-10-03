@@ -38,6 +38,7 @@ describe('small helpers', () => {
   it('never advises below lesson 7', () => {
     expect(lessonFor({ ...DEFAULT_SETTINGS, progressLesson: 4 })).toBe(7);
     expect(lessonFor({ ...DEFAULT_SETTINGS, progressLesson: 11 })).toBe(11);
+    expect(lessonFor({ ...DEFAULT_SETTINGS, unlockAll: true })).toBe(13);
   });
 });
 

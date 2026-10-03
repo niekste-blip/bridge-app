@@ -1,3 +1,4 @@
+import { NO_PROGRESS, type Progress } from '../lessons';
 import { type Game, phaseOf } from './game';
 import { DEFAULT_SETTINGS, type Settings } from './settings';
 
@@ -9,6 +10,8 @@ export interface Saved {
   readonly game: Game | null;
   // Number of the next board to deal
   readonly nextBoard: number;
+  // Finished lessons and the exercises that still need practice
+  readonly progress: Progress;
 }
 
 export interface Loaded {
@@ -17,12 +20,30 @@ export interface Loaded {
   readonly recovered: boolean;
 }
 
-export const FRESH: Saved = { settings: DEFAULT_SETTINGS, game: null, nextBoard: 1 };
+export const FRESH: Saved = {
+  settings: DEFAULT_SETTINGS,
+  game: null,
+  nextBoard: 1,
+  progress: NO_PROGRESS,
+};
 
 type Store = Pick<Storage, 'getItem' | 'setItem'>;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
+}
+
+function usableProgress(value: unknown): Progress {
+  if (!isRecord(value) || !Array.isArray(value.completed) || !Array.isArray(value.trouble)) {
+    return NO_PROGRESS;
+  }
+  return {
+    completed: value.completed.filter((item): item is number => typeof item === 'number'),
+    trouble: value.trouble.filter(
+      (item): item is Progress['trouble'][number] =>
+        isRecord(item) && typeof item.id === 'string' && typeof item.streak === 'number',
+    ),
+  };
 }
 
 function usableGame(value: unknown): Game | null {
@@ -60,8 +81,12 @@ export function load(store: Store): Loaded {
     const settings = usableSettings(data.settings);
     const nextBoard = typeof data.nextBoard === 'number' && data.nextBoard >= 1 ? data.nextBoard : 1;
     const game = data.game === null ? null : usableGame(data.game);
-    // The settings and the board number survive a damaged game
-    return { saved: { settings, game, nextBoard }, recovered: data.game !== null && game === null };
+    const progress = usableProgress(data.progress);
+    // The settings, the board number and the lesson progress survive a damaged game
+    return {
+      saved: { settings, game, nextBoard, progress },
+      recovered: data.game !== null && game === null,
+    };
   } catch {
     return { saved: FRESH, recovered: true };
   }

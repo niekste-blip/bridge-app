@@ -11,6 +11,8 @@ export interface Settings {
   readonly textSize: TextSize;
   // Highest lesson the user has finished; the bots use no bidding rules beyond it
   readonly progressLesson: number;
+  // Opens every lesson and lets the bots use all rules, for someone who already plays
+  readonly unlockAll: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -18,5 +20,13 @@ export const DEFAULT_SETTINGS: Settings = {
   userBids: true,
   showPoints: true,
   textSize: 'large',
-  progressLesson: 7,
+  progressLesson: 0,
+  unlockAll: false,
 };
+
+const LAST_LESSON = 13;
+
+// The lesson the user counts as having reached
+export function effectiveProgress(settings: Settings): number {
+  return settings.unlockAll ? LAST_LESSON : settings.progressLesson;
+}

@@ -12,7 +12,7 @@ import {
 import { type Game, newGame, phaseOf, turnOf, userCall, userCard } from './game';
 import { DEFAULT_SETTINGS, type Settings } from './settings';
 
-const settings: Settings = { ...DEFAULT_SETTINGS, level: 'medium' };
+const settings: Settings = { ...DEFAULT_SETTINGS, level: 'medium', progressLesson: 9 };
 
 // Plays a whole board: the bots answer, the user passes and plays the first legal card
 function playBoard(start: Game): Game {
@@ -48,8 +48,10 @@ describe('botRequestFor', () => {
       hand: game.deal.N,
       auction: game.auction,
       level: 'hard',
-      progressLesson: 7,
+      progressLesson: 9,
     });
+    const unlocked = botRequestFor(game, { ...settings, unlockAll: true });
+    expect(unlocked?.progressLesson).toBe(13);
   });
 
   it('asks nothing when the user is to act', () => {

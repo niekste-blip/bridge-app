@@ -12,7 +12,7 @@ import {
   limitsFor,
   viewOfPlay,
 } from '../bots';
-import { type Game, type Settings, USER, turnOf } from '../game';
+import { type Game, type Settings, USER, effectiveProgress, turnOf } from '../game';
 
 export interface CardHint {
   readonly card: Card;
@@ -57,7 +57,7 @@ export function tricksText(value: number): string {
 
 // The bots never know less than lesson 7, and neither does the advice
 export function lessonFor(settings: Settings): number {
-  return Math.max(BASE_LESSON, settings.progressLesson);
+  return Math.max(BASE_LESSON, effectiveProgress(settings));
 }
 
 // Bidding advice for the user never uses a rule from a lesson she has not finished,
@@ -65,7 +65,7 @@ export function lessonFor(settings: Settings): number {
 const FIRST_BIDDING_LESSON = 4;
 
 export function adviceLesson(settings: Settings): number {
-  return Math.max(FIRST_BIDDING_LESSON, settings.progressLesson);
+  return Math.max(FIRST_BIDDING_LESSON, effectiveProgress(settings));
 }
 
 // The call the rules prescribe for the user now; null when it is not the user's turn to call

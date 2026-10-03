@@ -24,6 +24,7 @@ describe('storage', () => {
       settings: { ...DEFAULT_SETTINGS, level: 'hard' as const, showPoints: false },
       game: newGame(4, 12),
       nextBoard: 5,
+      progress: { completed: [1, 2], trouble: [{ id: 'l1-down', streak: 1 }] },
     };
     save(store, saved);
     expect(load(store)).toEqual({ saved, recovered: false });
@@ -47,6 +48,22 @@ describe('storage', () => {
     expect(loaded.saved.game).toBeNull();
     expect(loaded.saved.settings.textSize).toBe('extraLarge');
     expect(loaded.saved.nextBoard).toBe(9);
+  });
+
+  it('keeps the lesson progress and drops what it cannot read', () => {
+    const text = JSON.stringify({
+      version: 1,
+      settings: DEFAULT_SETTINGS,
+      game: null,
+      nextBoard: 1,
+      progress: { completed: [1, 'x', 3], trouble: [{ id: 'a', streak: 1 }, { id: 5 }] },
+    });
+    expect(load(memoryStore(text)).saved.progress).toEqual({
+      completed: [1, 3],
+      trouble: [{ id: 'a', streak: 1 }],
+    });
+    const without = JSON.stringify({ version: 1, settings: DEFAULT_SETTINGS, game: null, nextBoard: 1 });
+    expect(load(memoryStore(without)).saved.progress).toEqual({ completed: [], trouble: [] });
   });
 
   it('drops a game without cards and a setting with an unknown value', () => {

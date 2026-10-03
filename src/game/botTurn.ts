@@ -9,7 +9,7 @@ import {
   viewOfPlay,
 } from '../bots';
 import { type Game, PARTNER, USER, botCallIn, botCardIn, newGame, phaseOf, turnOf } from './game';
-import { type Settings } from './settings';
+import { type Settings, effectiveProgress } from './settings';
 
 export type BotRequest =
   | {
@@ -52,7 +52,7 @@ export function botRequestFor(game: Game, settings: Settings): BotRequest | null
       hand: game.deal[turn.seat],
       auction: game.auction,
       level,
-      progressLesson: settings.progressLesson,
+      progressLesson: effectiveProgress(settings),
     };
   }
   if (!game.play) return null;
@@ -63,7 +63,7 @@ export function botRequestFor(game: Game, settings: Settings): BotRequest | null
     level,
     seed: game.seed * 100 + cardsPlayed,
     budgetMs: THINKING_BUDGET_MS,
-    progressLesson: settings.progressLesson,
+    progressLesson: effectiveProgress(settings),
   };
 }
 
@@ -97,7 +97,7 @@ export function bidOutByBots(game: Game, settings: Settings): Game {
   while (phaseOf(current) === 'auction') {
     const seat = seatToCall(current.auction);
     const level = seat === USER || seat === PARTNER ? 'hard' : settings.level;
-    const choice = botCall(current.deal[seat], current.auction, level, settings.progressLesson);
+    const choice = botCall(current.deal[seat], current.auction, level, effectiveProgress(settings));
     current = botCallIn(current, choice);
   }
   return current;
