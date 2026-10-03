@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { type Auction, SEATS, type Seat, type Vulnerability, isVulnerable, sideOf } from '../../core';
+import { type Auction, type Seat, type Vulnerability, isVulnerable, sideOf } from '../../core';
 import { SEAT_NAME, shortCallLabel } from '../text';
 
 // West is shown first, as on a bidding pad
@@ -7,11 +7,12 @@ const COLUMNS: readonly Seat[] = ['W', 'N', 'E', 'S'];
 
 interface Props {
   readonly auction: Auction;
-  readonly notes: readonly (string | null)[];
   readonly vulnerability: Vulnerability;
+  // What the call at a position means, shown when the user taps it
+  readonly meaning: (index: number) => string;
 }
 
-export function AuctionGrid({ auction, notes, vulnerability }: Props) {
+export function AuctionGrid({ auction, vulnerability, meaning }: Props) {
   const [opened, setOpened] = useState<number | null>(null);
   // Empty cells before the dealer's first call
   const offset = COLUMNS.indexOf(auction.dealer);
@@ -19,7 +20,6 @@ export function AuctionGrid({ auction, notes, vulnerability }: Props) {
     ...Array.from({ length: offset }, () => null),
     ...auction.calls.map((_, index) => index),
   ];
-  const openedNote = opened !== null ? notes[opened] : null;
 
   return (
     <div className="auction">
@@ -49,10 +49,8 @@ export function AuctionGrid({ auction, notes, vulnerability }: Props) {
           ),
         )}
       </div>
-      {opened !== null && (
-        <p className="auction-note">
-          {openedNote ?? `${SEAT_NAME[SEATS[(SEATS.indexOf(auction.dealer) + opened) % 4]]}: eigen bod.`}
-        </p>
+      {opened !== null && opened < auction.calls.length && (
+        <p className="auction-note">{meaning(opened)}</p>
       )}
     </div>
   );

@@ -1,0 +1,30 @@
+.hint {
+  flex-basis: 100%;
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 0.6em 1em;
+  border-left: 0.4em solid var(--accent);
+  border-radius: 0.4em;
+  background: var(--paper);
+}
+
+.review {
+  margin: 0.8em 0 0;
+  padding-top: 0.6em;
+  border-top: 2px solid var(--line);
+  text-align: left;
+}
+
+.review h3 {
+  margin: 0 0 0.3em;
+  font-size: 1em;
+}
+
+.review ol {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.review li + li {
+  margin-top: 0.4em;
+}

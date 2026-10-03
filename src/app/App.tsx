@@ -1,6 +1,8 @@
-import { useEffect, useReducer } from 'react';
-import { FRESH, botRequestFor, load, save, turnOf } from '../game';
-import { askBot } from './botClient';
+import { useEffect, useReducer, useState } from 'react';
+import { type Moment, callHint, callMeaning, cardName } from '../coach';
+import { FRESH, type Game, botRequestFor, load, phaseOf, save, turnOf } from '../game';
+import { askBot, askHint, askReview } from './botClient';
+import './coach.css';
 import { HomeScreen } from './components/HomeScreen';
 import { SettingsScreen } from './components/SettingsScreen';
 import { TableScreen } from './components/TableScreen';
@@ -54,6 +56,39 @@ export function App() {
     };
   }, [game, settings, screen]);
 
+  // Advice and review belong to one position; they are dropped as soon as the game moves on
+  const [hint, setHint] = useState<{ game: Game; text: string } | null>(null);
+  const [review, setReview] = useState<{ game: Game; moments: Moment[] } | null>(null);
+
+  const showHint = () => {
+    if (!game) return;
+    const turn = turnOf(game);
+    if (turn?.kind === 'call') {
+      const advice = callHint(game, settings);
+      if (advice) setHint({ game, text: `Advies: ${advice.explanation}` });
+      return;
+    }
+    setHint({ game, text: 'Even denken…' });
+    void askHint(game, settings).then((advice) => {
+      if (advice) {
+        setHint({ game, text: `Advies: speel ${cardName(advice.card)}. ${advice.text}` });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (!game || screen !== 'table') return;
+    const phase = phaseOf(game);
+    if (phase !== 'finished' && phase !== 'passedOut') return;
+    let cancelled = false;
+    void askReview(game, settings).then((moments) => {
+      if (!cancelled) setReview({ game, moments });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [game, settings, screen]);
+
   const newBoard = () => dispatch({ type: 'newBoard', seed: Math.floor(Math.random() * 1_000_000) + 1 });
 
   return (
@@ -62,6 +97,10 @@ export function App() {
         <TableScreen
           game={game}
           settings={settings}
+          hint={hint?.game === game ? hint.text : null}
+          review={review?.game === game ? review.moments : null}
+          meaning={(index) => callMeaning(game, index, settings)}
+          onHint={showHint}
           onCall={(call) => dispatch({ type: 'call', call })}
           onCard={(card) => dispatch({ type: 'card', card })}
           onUndo={() => dispatch({ type: 'undo' })}

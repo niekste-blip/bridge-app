@@ -1,5 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
+import { type Moment } from '../coach';
 import { PASS, bid, legalCards } from '../core';
 import {
   DEFAULT_SETTINGS,
@@ -20,11 +21,20 @@ import { TableScreen } from './components/TableScreen';
 const noop = () => {};
 const pass = { call: PASS, ruleId: 'test', explanation: 'Pas: test.', source: 'rule' as const };
 
-function table(game: Game): string {
+interface Extra {
+  readonly hint?: string;
+  readonly review?: readonly Moment[];
+}
+
+function table(game: Game, extra: Extra = {}): string {
   return renderToStaticMarkup(
     <TableScreen
       game={game}
       settings={DEFAULT_SETTINGS}
+      hint={extra.hint ?? null}
+      review={extra.review ?? null}
+      meaning={(index) => `betekenis ${index}`}
+      onHint={noop}
       onCall={noop}
       onCard={noop}
       onUndo={noop}
@@ -89,11 +99,30 @@ describe('TableScreen', () => {
     expect(html).toMatch(/punten voor (Noord-Zuid|Oost-West)/);
   });
 
+  it('offers a hint to the user and shows it', () => {
+    const game = botCallIn(botCallIn(newGame(1, 1), pass), pass);
+    expect(table(game)).toContain('>Hint<');
+    expect(table(game, { hint: 'Advies: pas.' })).toContain('Advies: pas.');
+    expect(table(newGame(1, 1))).not.toContain('>Hint<');
+  });
+
+  it('shows the review after the board', () => {
+    const finished = playCards(southDeclares(), 52);
+    expect(table(finished)).toContain('De nabespreking wordt gemaakt…');
+    expect(table(finished, { review: [] })).toContain('Geen leermomenten gevonden in dit spel.');
+    const moments: Moment[] = [{ kind: 'card', text: 'Slag 2: test.', weight: 1 }];
+    expect(table(finished, { review: moments })).toContain('<li>Slag 2: test.</li>');
+  });
+
   it('hides the points when asked', () => {
     const html = renderToStaticMarkup(
       <TableScreen
         game={newGame(1, 1)}
         settings={{ ...DEFAULT_SETTINGS, showPoints: false }}
+        hint={null}
+        review={null}
+        meaning={() => ''}
+        onHint={noop}
         onCall={noop}
         onCard={noop}
         onUndo={noop}

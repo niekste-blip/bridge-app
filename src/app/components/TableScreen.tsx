@@ -9,6 +9,7 @@ import {
   sameCard,
   tricksWon,
 } from '../../core';
+import { type Moment } from '../../coach';
 import {
   type Game,
   type Settings,
@@ -29,6 +30,11 @@ import { TrickArea } from './TrickArea';
 interface Props {
   readonly game: Game;
   readonly settings: Settings;
+  // Advice for the move the user is about to make, when asked for
+  readonly hint: string | null;
+  readonly review: readonly Moment[] | null;
+  readonly meaning: (index: number) => string;
+  readonly onHint: () => void;
   readonly onCall: (call: Call) => void;
   readonly onCard: (card: Card) => void;
   readonly onUndo: () => void;
@@ -115,11 +121,20 @@ export function TableScreen(props: Props) {
         ))}
         <section className="centre">
           {over ? (
-            <ResultPanel game={game} onNext={props.onNext} onReplay={props.onReplay} />
+            <ResultPanel
+              game={game}
+              review={props.review}
+              onNext={props.onNext}
+              onReplay={props.onReplay}
+            />
           ) : game.play ? (
             <TrickArea play={game.play} toPlay={turn?.seat ?? null} />
           ) : (
-            <AuctionGrid auction={game.auction} notes={game.notes} vulnerability={game.vulnerability} />
+            <AuctionGrid
+              auction={game.auction}
+              vulnerability={game.vulnerability}
+              meaning={props.meaning}
+            />
           )}
         </section>
       </main>
@@ -128,12 +143,18 @@ export function TableScreen(props: Props) {
         <p className="status" aria-live="polite">
           {status()}
         </p>
+        {props.hint && turn?.byUser && <p className="hint">{props.hint}</p>}
         {turn?.kind === 'call' && turn.byUser && (
           <BiddingBox auction={game.auction} onCall={props.onCall} />
         )}
         {userPlays && (
           <button type="button" className="primary confirm" disabled={!chosen} onClick={playChosen}>
             {chosen ? `Speel ${cardLabel(chosen)}` : 'Kies een kaart'}
+          </button>
+        )}
+        {turn?.byUser && (
+          <button type="button" onClick={props.onHint}>
+            Hint
           </button>
         )}
         {canUndo(game) && (
