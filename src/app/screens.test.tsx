@@ -155,12 +155,14 @@ describe('HomeScreen and SettingsScreen', () => {
         notice="Let op"
         onContinue={noop}
         onNew={noop}
+        onLessons={noop}
         onSettings={noop}
         onDismissNotice={noop}
       />,
     );
     expect(html).toContain('Verder met spel 4');
     expect(html).toContain('Nieuw spel');
+    expect(html).toContain('Leerpad');
     expect(html).toContain('Let op');
   });
 
@@ -171,6 +173,7 @@ describe('HomeScreen and SettingsScreen', () => {
         notice={null}
         onContinue={noop}
         onNew={noop}
+        onLessons={noop}
         onSettings={noop}
         onDismissNotice={noop}
       />,
@@ -182,7 +185,7 @@ describe('HomeScreen and SettingsScreen', () => {
     const html = renderToStaticMarkup(
       <SettingsScreen settings={DEFAULT_SETTINGS} onChange={noop} onReset={noop} onBack={noop} />,
     );
-    for (const text of ['Makkelijk', 'Gemiddeld', 'Moeilijk', 'Extra groot', 'Zelf bieden', 'Alles wissen']) {
+    for (const text of ['Makkelijk', 'Extra groot', 'Zelf bieden', 'Alle lessen openzetten', 'Alles wissen']) {
       expect(html).toContain(text);
     }
   });

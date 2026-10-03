@@ -1,9 +1,13 @@
 import { useEffect, useReducer, useState } from 'react';
 import { type Moment, callHint, callMeaning, cardName } from '../coach';
 import { FRESH, type Game, botRequestFor, load, phaseOf, save, turnOf } from '../game';
+import { LESSONS } from '../lessons';
 import { askBot, askHint, askReview } from './botClient';
 import './coach.css';
 import { HomeScreen } from './components/HomeScreen';
+import { LessonScreen } from './components/LessonScreen';
+import { LessonsScreen } from './components/LessonsScreen';
+import './lessons.css';
 import { SettingsScreen } from './components/SettingsScreen';
 import { TableScreen } from './components/TableScreen';
 import { initialState, reduce } from './state';
@@ -108,6 +112,23 @@ export function App() {
           onReplay={() => dispatch({ type: 'replay' })}
           onHome={() => dispatch({ type: 'go', screen: 'home' })}
         />
+      ) : screen === 'lesson' && state.session ? (
+        <LessonScreen
+          session={state.session}
+          onNext={() => dispatch({ type: 'lessonNext' })}
+          onBack={() => dispatch({ type: 'lessonBack' })}
+          onAnswer={(right) => dispatch({ type: 'lessonAnswer', right })}
+          onClose={() => dispatch({ type: 'lessonClose' })}
+        />
+      ) : screen === 'lessons' ? (
+        <LessonsScreen
+          lessons={LESSONS}
+          progress={saved.progress}
+          unlockAll={settings.unlockAll}
+          onOpen={(number) => dispatch({ type: 'openLesson', number })}
+          onPractice={() => dispatch({ type: 'practice' })}
+          onBack={() => dispatch({ type: 'go', screen: 'home' })}
+        />
       ) : screen === 'settings' ? (
         <SettingsScreen
           settings={settings}
@@ -126,6 +147,7 @@ export function App() {
               newBoard();
             }
           }}
+          onLessons={() => dispatch({ type: 'go', screen: 'lessons' })}
           onSettings={() => dispatch({ type: 'go', screen: 'settings' })}
           onDismissNotice={() => dispatch({ type: 'dismissNotice' })}
         />

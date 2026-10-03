@@ -55,7 +55,7 @@ export function SettingsScreen({ settings, onChange, onReset, onBack }: Props) {
             checked={settings.userBids}
             onChange={(event) => onChange({ ...settings, userBids: event.target.checked })}
           />
-          Zelf bieden (uit: de computer biedt en u speelt het contract)
+          Zelf bieden, zodra les 4 is afgerond (uit: de computer biedt en u speelt het contract)
         </label>
         <label className="option">
           <input
@@ -64,6 +64,18 @@ export function SettingsScreen({ settings, onChange, onReset, onBack }: Props) {
             onChange={(event) => onChange({ ...settings, showPoints: event.target.checked })}
           />
           Punten van mijn hand tonen
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Leerpad</legend>
+        <label className="option">
+          <input
+            type="checkbox"
+            checked={settings.unlockAll}
+            onChange={(event) => onChange({ ...settings, unlockAll: event.target.checked })}
+          />
+          Alle lessen openzetten (voor wie al kan bridgen)
         </label>
       </fieldset>
 

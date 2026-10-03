@@ -1,0 +1,169 @@
+.lessons,
+.lesson {
+  max-width: 46em;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.4em 1.2em 2em;
+  color: var(--paper);
+}
+
+.lessons h1 {
+  font-size: 2.2em;
+  margin: 0 0 0.6em;
+}
+
+.lesson-list {
+  list-style: none;
+  margin: 0 0 1.2em;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.lesson-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4em 1fr auto;
+  align-items: center;
+  gap: 0.8em;
+  text-align: left;
+  min-height: 3.2em;
+}
+
+.lesson-number {
+  font-weight: 700;
+}
+
+.lesson-status {
+  font-size: 0.85em;
+}
+
+.lesson-done {
+  border-color: #2f8f56;
+  background: #e7f5ec;
+}
+
+.lessons-actions,
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.lesson-head {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.lesson-head h1 {
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.lesson-page,
+.lesson-exercise,
+.lesson-done-panel {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 0.6em;
+  padding: 1.2em 1.4em 1.4em;
+  line-height: 1.5;
+}
+
+.lesson-page h2,
+.lesson-done-panel h2 {
+  margin: 0 0 0.5em;
+}
+
+.lesson-step {
+  margin: 0 0 0.6em;
+  font-size: 0.85em;
+  color: #555;
+}
+
+.lesson-page .hand,
+.exercise > .hand {
+  padding: 0.6em 0 1em;
+}
+
+.exercise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.question {
+  margin: 0;
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6em;
+  width: 100%;
+}
+
+.option-button {
+  min-height: 3.2em;
+}
+
+.option-button:disabled {
+  opacity: 0.75;
+}
+
+.option-right {
+  border-color: #2f8f56;
+  background: #e7f5ec;
+  opacity: 1;
+}
+
+.option-wrong {
+  border-color: var(--red);
+  background: #fbeaec;
+  opacity: 1;
+}
+
+.feedback {
+  width: 100%;
+  padding: 0.8em 1em;
+  border-radius: 0.5em;
+  border-left: 0.4em solid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8em;
+}
+
+.feedback p {
+  margin: 0;
+  flex: 1 1 16em;
+}
+
+.feedback-right {
+  border-color: #2f8f56;
+  background: #e7f5ec;
+}
+
+.feedback-wrong {
+  border-color: var(--red);
+  background: #fbeaec;
+}
+
+.play-count {
+  margin: 0;
+}
+
+.practice-table {
+  width: 100%;
+  background: var(--felt);
+  border-radius: 0.6em;
+  flex: none;
+}

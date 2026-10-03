@@ -5,11 +5,20 @@ interface Props {
   readonly notice: string | null;
   readonly onContinue: () => void;
   readonly onNew: () => void;
+  readonly onLessons: () => void;
   readonly onSettings: () => void;
   readonly onDismissNotice: () => void;
 }
 
-export function HomeScreen({ game, notice, onContinue, onNew, onSettings, onDismissNotice }: Props) {
+export function HomeScreen({
+  game,
+  notice,
+  onContinue,
+  onNew,
+  onLessons,
+  onSettings,
+  onDismissNotice,
+}: Props) {
   const running = game !== null && (phaseOf(game) === 'auction' || phaseOf(game) === 'play');
   return (
     <div className="home">
@@ -23,12 +32,15 @@ export function HomeScreen({ game, notice, onContinue, onNew, onSettings, onDism
         </p>
       )}
       <nav className="home-menu">
+        <button type="button" className="primary" onClick={onLessons}>
+          Leerpad
+        </button>
         {running && (
-          <button type="button" className="primary" onClick={onContinue}>
+          <button type="button" onClick={onContinue}>
             Verder met spel {game.board}
           </button>
         )}
-        <button type="button" className={running ? '' : 'primary'} onClick={onNew}>
+        <button type="button" onClick={onNew}>
           Nieuw spel
         </button>
         <button type="button" onClick={onSettings}>
