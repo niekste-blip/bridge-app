@@ -190,5 +190,5 @@ Elke stap krijgt een eigen bouwplan en levert iets op dat getest kan worden.
 4. `bots`
 5. Speelbare app: speeltafel, biedbox, vrij spelen, opslag
 6. `coach`: hint, uitleg, nabespreking
-7. `lessons`: leerpad en de inhoud van de dertien lessen
+7. `lessons`: leerpad en de inhoud van les 1 tot en met 7. Les 8, 9 en 12 vragen alleen inhoud en volgen in één vervolgplan; les 10, 11 en 13 vragen elk eerst nieuwe biedregels
 8. PWA-afwerking en online zetten
