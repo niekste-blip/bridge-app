@@ -58,11 +58,14 @@ Bot, coach en les kunnen elkaar daardoor niet tegenspreken.
 Een biedregel bevat:
 
 - `id`
-- `les`: nummer van de les waarin de regel geïntroduceerd wordt
-- `voorwaarde`: functie van hand en biedverloop naar waar of onwaar
-- `bod`
-- `prioriteit`: bij meerdere passende regels wint de hoogste
-- `uitleg`: korte Nederlandse tekst over wat het bod belooft
+- `lesson`: nummer van de les waarin de regel geïntroduceerd wordt
+- `situation`: functie van het biedverloop naar waar of onwaar (bijvoorbeeld "partner opende 1♥ en ik heb nog niet geboden")
+- `requires`: de eis aan de hand als gegevens: een puntenbereik, minimum- en maximumlengtes per kleur, en of de hand verdeeld moet zijn
+- `call`: het bod
+- `priority`: bij meerdere passende regels wint de hoogste
+- `explanation`: korte Nederlandse tekst over wat het bod belooft
+
+De voorwaarde is gesplitst in `situation` en `requires`, zodat uit een bod van een speler is af te leiden wat die speler heeft beloofd. Het vangnet en later de simulatie van de bots gebruiken dat.
 
 De regelset is te filteren op een maximaal lesnummer. Zo bieden bots nooit iets wat de gebruiker nog niet geleerd heeft.
 
